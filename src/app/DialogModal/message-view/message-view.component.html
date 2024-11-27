@@ -1,0 +1,60 @@
+
+
+<!-- <h1 mat-dialog-title>Message</h1>
+
+    <h2>Employee Message</h2>   
+    <div class="row">     
+        <div class="col-md-12">
+            <img [src]="image" class=""  width="32" height="32">
+            <h3 class="ttr-user-avatar">   {{msg.FName}}  </h3>    
+
+            <div class="form-group ">
+                <label class="col-form-label">Message Subject</label>
+                <div>
+                    <input class="form-control" type="text" name="FName" [(ngModel)]="msg.MsgHeader"   readonly >
+                </div>
+            </div>
+            <div class="form-group ">
+                <label class="col-form-label">Message Body</label>
+                <div>
+                    <textarea class="form-control"  name="Address" [(ngModel)]="msg.MsgBody" readonly rows="2" cols="10"></textarea>
+                </div>
+            </div>
+             
+        </div>  
+
+
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close (click)="DisableYes(1)"> Ok </button>
+  <button mat-button mat-dialog-close (click)="DisableYes(2)"> Cancel </button>
+</div> -->
+
+<h2 mat-dialog-title>Employee Message</h2>
+<mat-dialog-content class="mat-typography">
+  <h3>Employee Messages View</h3>
+    <div class="row">     
+        <div class="col-md-12">
+            <img class="ttr-user-avatar" [src]="image" class="" >
+            <h3 > Employee Name: <B> {{msg.FName}} </B> </h3>    
+
+            <div class="form-group ">
+                <label class="col-form-label">Message Subject</label>
+                <div>
+                    <input class="form-control" type="text" name="FName" [(ngModel)]="msg.MsgHeader"   readonly >
+                </div>
+            </div>
+            <div class="form-group ">
+                <label class="col-form-label">Message Body</label>
+                <div>
+                    <textarea class="form-control"  name="Address" [(ngModel)]="msg.MsgBody" readonly rows="2" cols="10"></textarea>
+                </div>
+            </div>
+            
+        </div>  
+    </div>
+ 
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close (click)="DisableYes(1)">Ok</button>
+  <button mat-button [mat-dialog-close]="true"  (click)="DisableYes(2)">Cancel</button>
+</mat-dialog-actions>

@@ -1,0 +1,101 @@
+
+<app-admin-navbar></app-admin-navbar>
+<app-sidebar></app-sidebar>
+
+<main class="ttr-wrapper">
+    <div class="container-fluid">
+        <div class="db-breadcrumb">
+            <h1 class="breadcrumb-title">Employee Status Reports</h1>
+            <ul class="db-breadcrumb-list">
+                <li><a routerLink="/dashboard"><i class="fa fa-home"></i>Home</a></li>
+                <li><a href="javascript:;"><i class="fa fa-list-alt"></i>Reports</a></li>
+                <li>Employee Status Reports</li>
+            </ul>
+        </div>	
+        <div class="row">
+           
+            <div class="col-lg-12 m-b30">
+                <div class="widget-box">
+                    <div class="wc-title">
+                        <h4>Employee Status Reports</h4>                                         
+                    </div>
+
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="input-group col-md-6">
+                                <div class="input-group-prepend input-group-prepend-sm">
+                                    <div class="input-group-text"><i class="fa fa-search"></i></div>
+                                </div>
+                                <br>
+                                <input  type="text" [(ngModel)]="_search"  name="_search"  class="form-control form-control-sm"
+                                    placeholder="Search">            
+                            </div> 
+
+                            <div class="input-group col-md-6">
+                                <div class="input-group-prepend input-group-prepend-sm">
+                                    <div class="input-group-text">User Status</div>
+                                </div>
+                                <br>
+                                <select class="form-control  " [(ngModel)]="Satatus" name="Usrtype"
+                                 required="required" (change)="UsrtypeWise($event)">
+                                    <option value=""></option>
+                                    <option [value]="usrtyp.Id"  *ngFor="let usrtyp of IsActive">     
+                                        {{usrtyp.Stat}}  
+                                    </option>      
+                                 </select>            
+                            </div> 
+
+
+                                            
+                        </div>  
+                    </div>
+                    
+                     
+                     
+                    <div class="widget-inner">
+                        
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col"></th>
+                                    <th scope="col">First Name</th>
+                                    <th scope="col">Last Name</th>
+                                    <th scope="col">Mobile No</th>
+                                    <th scope="col">Email</th>
+                                  
+                                    <th scope="col">Status</th>
+                              
+                    
+                                </tr>
+                            </thead>
+                          
+
+                            <tbody>
+                                <tr *ngFor="let thr of CustData" >
+                                    <tr *ngFor="let thr of usrdata" >
+                                        <td >{{thr.CountId}}</td>
+                                        <td ><img src="{{imagePath}}{{thr.UsrImage}}" style="height: 50px;width: 40px;"/>  </td>
+                                        <td>{{thr.FName}}</td>
+                                        <td>{{thr.LName}}</td>
+                                        <td>{{thr.MobileNo}}</td>
+                                        <td>{{thr.Email}}</td>
+                                        <td>
+                                            <img  src="../../../../../assets/images/icon/yes.png"  style="width: 20px;height: 20px;" *ngIf="thr.IsActive==1"   >
+                                            <img  src="../../../../../assets/images/icon/no.png"  style="width: 20px;height: 20px;"  *ngIf="thr.IsActive==0" >
+                        
+                        
+                                        </td>
+                                 
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</main>

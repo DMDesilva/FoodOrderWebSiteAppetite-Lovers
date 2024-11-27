@@ -1,0 +1,93 @@
+<app-navbar></app-navbar>
+<div class="page-content ">
+   <!-- inner page banner -->
+   <div class="page-banner ovbl-middle" style="background-image:url(assets/images/banner/foodBack.jpg);">
+      <div class="container">
+         <div class="page-banner-entry">
+            <h1 class="text-white">Order Food Items</h1>
+         </div>
+      </div>
+   </div>
+   <!-- Breadcrumb row -->
+   <div class="breadcrumb-row">
+      <div class="container">
+         <ul class="list-inline">
+            <li><a routerLink="/home">Home</a></li>
+            <li>Order Food Items</li>
+         </ul>
+      </div>
+   </div>
+   <div class="content-block">
+      <div class="section-area section-sp1">
+         <div class="container">
+
+            <div class="row" *ngIf="this.cateId==4">
+                <div class="col-md-6">
+                    <div id='container' class="container">
+                       <label  class="col-form-label col-md-7">Cake Type</label>
+                       <ul class="col-md-12" id='my-ul'>
+                          <li *ngFor="let ctyp of CakeType"> 
+                             <button class="btn btn-sm"  (click)="selectedCakeType(ctyp.Id)"> {{ctyp.TypeName}} </button>
+                          </li>
+                       </ul>
+                    </div>
+                 </div>
+                 
+                 <div class="col-md-6"  *ngIf="this.BirthDayCake==2">
+                    <div id='container' class="container">
+                       <label  class="col-form-label col-md-7">Age Range</label>
+                       <ul class="col-md-12" id='my-ul'>
+                          <li *ngFor="let atyp of AgeRange"> 
+                             <button class="btn btn-sm" (click)="selectedCakeRange(atyp.Id)"> {{atyp.RangeTyp}} </button>
+                          </li>
+                       </ul>
+                    </div>
+                 </div>
+                            
+            </div>
+
+
+
+
+            <div class="row">      
+               <div class="col-lg-12 col-md-12 col-sm-12 m-b30">
+                  <div class="profile-content-bx">
+                     <div class="tab-content">
+                        <div class="tab-pane active" id="courses">
+                           <div class="courses-filter">
+                              <div class="clearfix">
+                                 <ul id="masonry" class="ttr-gallery-listing magnific-image row">
+                                    <li class="action-card col-xl-4 col-lg-6 col-md-12 col-sm-6 publish" *ngFor="let pro of ProdList">
+                                       <div class="cours-bx">
+                                          <div class="action-box">
+                                             <img src="{{ImgPath}}{{pro.ProImage}}" alt="" style="height: 225px;width: 100%; ">
+                                             <a href="javascript:void(0)" class="btn" (click)="OrderNow(pro.Id)">Order Now!</a>
+                                          </div>
+                                          <div class="info-bx text-center">
+                                             <h5><a href="#">{{pro.ProName}}</a></h5>
+                                             <span>{{pro.ProDetails}}</span>
+                                          </div>
+                                          <div class="cours-more-info">
+                                             <div class="review">
+                                                <span>3 Review</span>
+                                             </div>
+                                             <div class="price">
+                                                <!-- <del>$190</del> -->
+                                                <h2>Rs {{pro.SellPrice}}</h2>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<app-footer></app-footer>

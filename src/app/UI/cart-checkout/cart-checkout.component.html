@@ -1,0 +1,150 @@
+<app-navbar></app-navbar>
+<div class="page-content" style="background: rgb(214, 223, 223);">
+    <!-- inner page banner -->
+    <div class="page-banner ovbl-middle" style="background-image:url(assets/images/banner/foodBack.jpg);">
+        <div class="container">
+            <div class="page-banner-entry">
+                <h1 class="text-white">Cart Checkout</h1>
+             </div>
+        </div>
+    </div>
+    <!-- Breadcrumb row -->
+    <div class="breadcrumb-row">
+        <div class="container">
+            <ul class="list-inline">
+                <li><a routerLink="/home">Home</a></li>
+                <li>Cart Checkout</li>
+            </ul>
+        </div>
+    </div>
+  
+    <div class="content-block">      
+        <div class="section-area section-sp1">
+            <div class="container">
+                 <div class="row">                  
+                    <div class="col-lg-12 col-md-12 col-sm-12 m-b10">
+                        <div class="profile-content-bx">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="courses">                               
+                                    <div class="courses-filter">
+                                        <div class="clearfix">
+                                            <div class="row">
+                                                <div class="col-lg-8 col-md-8 col-sm-12 ">
+                                                    <table class="table table-sm">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>#</th>                                   
+                                                                <th></th>                                   
+                                                                <th>Product</th>
+                                                                <th>Qty</th>
+                                                                <th>U/Price</th>
+                                                                <th>Total</th>                                                                                                                                                      
+                                                            </tr>
+                                                        </thead>                                           
+                                                        <tbody>
+                                                            <tr *ngFor="let thr of ProList;let ind=index" >
+                                                                <td >{{ind+1}}</td>
+                                                                <td ><img src="{{ImgPath}}{{thr.ProImage}}" style="height: 40px;width: 42px;"/></td>
+                                                                <td>{{thr.ProName}}</td>                                  
+                                                                <td>{{thr.Qty}}</td>                                  
+                                                                <td>{{thr.SellPrice| currency:'Rs'}}</td>                                                                  
+                                                                <td>{{thr.SubTotal | currency:'Rs'}}</td>                                  
+                                                               
+                                                                <td><i class="fa fa-trash" style="color: red; cursor: pointer;" (click)="RemoveItem(thr)" aria-hidden="true"></i> </td>
+                                                
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="5" align="right"><b>Sub Total :</b></td>
+                                                                <td><b>{{SubTotalAmount |currency:'Rs'}}</b></td>
+                                                            </tr>
+                                                
+                                                        </tbody>
+        
+                                                    </table>
+                                                </div>
+
+
+                                                <div class="col-lg-4 col-md-2 col-sm-12 ">
+                                                    <div class="sticky">
+                                                        <div class="card">
+                                                            <div class="card-body">
+                                                                <h3><b>  Total Amount</b> </h3>
+                                                                <hr>
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <p>Your Products Total Amount:</p>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <h3 class="text-right"><b>{{SubTotalAmount| currency:'Rs'}}</b></h3>
+                                                                    </div>
+                                                                </div>
+                                                               
+                                                                <hr>
+                                                                <div>
+                                                                    <mat-radio-group  aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="favoriteSeason">
+                                                                        <mat-radio-button class="example-radio-button"  value="Card"> Card </mat-radio-button>
+                                                                        <mat-radio-button class="example-radio-button"  value="Cash"> Cash On Delivery </mat-radio-button>
+                                                                    </mat-radio-group>
+                                                                    <h3>Your Payment Type Is: <b>{{favoriteSeason}}</b></h3>
+                                                                </div>
+                                                                
+                                                                <hr>
+                                                                <div class="text-center">
+                                                                    <button class="btn btn-block btn-outline-primary"  (click)="CartCheckOut()" >
+                                                                        <i class="fa fa-shopping-cart"></i>
+                                                                        Proceed to Checkout
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+    
+    
+                                            </div>
+                                          
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- <div class="container pb-5">
+     <mat-accordion class="example-headers-align" multi>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Personal data
+            </mat-panel-title>
+            <mat-panel-description>
+              Type your name and age
+              <mat-icon>account_circle</mat-icon>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+      
+          <mat-form-field>
+            <mat-label>First name</mat-label>
+            <input matInput>
+          </mat-form-field>
+      
+          <mat-form-field>
+            <mat-label>Age</mat-label>
+            <input matInput type="number" min="1">
+          </mat-form-field>
+      
+        </mat-expansion-panel>
+       
+      </mat-accordion>
+</div> -->
+   
+</div>
+
+
+<app-footer></app-footer>
+

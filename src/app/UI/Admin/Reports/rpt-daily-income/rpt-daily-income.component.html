@@ -1,0 +1,90 @@
+
+<app-admin-navbar></app-admin-navbar>
+<app-sidebar></app-sidebar>
+
+<main class="ttr-wrapper">
+    <div class="container-fluid">
+        <div class="db-breadcrumb">
+            <h1 class="breadcrumb-title">Daily Income Reports</h1>
+            <ul class="db-breadcrumb-list">
+                <li><a routerLink="/dashboard"><i class="fa fa-home"></i>Home</a></li>
+                <li><a href="javascript:;"><i class="fa fa-list-alt"></i>Reports</a></li>
+                <li>Daily Income Reports</li>
+            </ul>
+        </div>	
+        <div class="row">
+           
+            <div class="col-lg-12 m-b30">
+                <div class="widget-box">
+                    <div class="wc-title">
+                        <h4>Daily Income Reports</h4>                                         
+                    </div>
+
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="input-group col-md-3">
+                              
+                                <!-- <input  type="date" [(ngModel)]="CurrentDate" [value]="CurrentDate"  name="rptDate"  
+                                class="form-control form-control-sm"   >   -->
+    
+                              <mat-form-field appearance="fill">
+                                <input matInput [matDatepicker]="picker" [(ngModel)]="CurrentDate">
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                              </mat-form-field>
+                             
+                            </div>
+                            <div class="input-group col-md-6">
+                                <button type="button" class="btn btn-success"
+                                 style="height: 36px; width: 51px; margin-top: 8px; "
+                                 (click)="SelectDate()" data-toggle="tooltip" data-placement="top"  >
+                                 <i class="fa fa-search" aria-hidden="true"></i>
+                                </button>             
+                            </div>
+                        </div>  
+                    </div>
+                    
+                     
+                     
+                    <div class="widget-inner">
+                        <div style="float: right;">
+                            <h3><b>{{rptDate}}</b> Income : <b>{{TotIncome | currency:'Rs. '}}</b></h3>
+                        </div>
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>                                   
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Payment Method</th>
+                                    <th scope="col">Income</th>
+                                    <th scope="col">Status</th>
+                              
+                    
+                                </tr>
+                            </thead>
+                          
+
+                            <tbody>
+                                <tr *ngFor="let thr of RptData;let ind=index" >
+                                    <td >{{ind+1}}</td>
+                                    <td>{{thr.CreatedDate}}</td>   
+                                    <td>{{thr.PayType}}</td>   
+                                    <td>{{thr.Income | currency:'Rs'}} </td>                               
+                                    <td>
+                                        <img  src="../../../../../assets/images/icon/yes.png"  style="width: 20px;height: 20px;" *ngIf="thr.IsActive==1"   >
+                                        <img  src="../../../../../assets/images/icon/no.png"  style="width: 20px;height: 20px;"  *ngIf="thr.IsActive==0" >
+                
+                                    </td>
+                                 
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</main>

@@ -1,0 +1,43 @@
+
+
+<h2 mat-dialog-title>{{Customer}} Order Items</h2>
+<mat-dialog-content class="mat-typography">
+  <h3></h3>
+    <div class="row">     
+        <div class="col-md-12">
+           <table>
+               <thead class="table tabl-sm">
+                  <tr>
+                    <!-- <th scope="col">Order Id</th>                                    -->
+                    <th scope="col">#</th>                                   
+                    <!-- <th scope="col">Pro Id</th>                                    -->
+                    <th scope="col">Product</th>
+                    <th scope="col">Qty</th>
+                    <th scope="col">Uni.Price</th>
+                    <th scope="col">Sub Total</th>
+                   
+                  </tr>
+               </thead>
+               <tbody>
+                 <tr *ngFor="let thr of ProductData">
+                   <!-- <td>{{thr.OrderId}}</td> -->
+                   <td><img src="{{proImge}}{{thr.ProImage}}" style="height: 50px;width: 40px;"></td>
+                   <!-- <td>{{thr.ProId}}</td> -->
+                   <td>{{thr.ProName}}</td>
+                   <td>{{thr.Qty}}</td>
+                   <td>{{thr.Sellprice}}</td>
+                   <td>{{thr.SubTotal}}</td>
+
+                 </tr>
+               </tbody>
+             
+           </table>
+            
+        </div>  
+    </div>
+ 
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close (click)="Ok(1)">Ok</button>
+  <button mat-button [mat-dialog-close]="true"  (click)="Ok(2)">Cancel</button>
+</mat-dialog-actions>

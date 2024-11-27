@@ -1,0 +1,120 @@
+
+<header class="header rs-nav header-transparent" >
+    <div class="top-bar">
+        <div class="container">
+            <div class="row d-flex justify-content-between">
+                <div class="topbar-left">
+                    <ul>
+                        <li><a href="javascript:;"><i class="fa fa-question-circle"></i>Ask a Question</a></li>
+                        <li><a href="javascript:;"><i class="fa fa-envelope-o"></i>AppetiteLovers@gmail.com</a></li>
+                    </ul>
+                </div>
+                <div class="topbar-right">
+                    <!-- <ul >                
+                        <li *ngIf="IshideLogin"><a routerLink="/login">Login</a></li>
+                        <li *ngIf="IshideLogOut">
+                            <a href="#" ></a>
+                            <ul class="sub-menu">
+                                <li><a routerLink="/MyProfile">My profile</a></li>
+                                <li (click)="Logout()"><a >Logout</a></li>                           
+                            </ul>
+                        </li>                      
+                    </ul> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sticky-header navbar-expand-lg">
+        <div class="menu-bar clearfix">
+            <div class="container clearfix">
+                <!-- Header Logo ==== -->
+                <div class="menu-logo">
+                    <a routerLink="/home"><img style="border-radius: 50%;" src="../../../assets/images/logoNew.png" alt=""></a>
+                </div>
+                <!-- Mobile Nav Button ==== -->
+                <button class="navbar-toggler collapsed menuicon justify-content-end" type="button" data-toggle="collapse" data-target="#menuDropdown" aria-controls="menuDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <div class="secondary-menu">
+                    <div class="secondary-inner">
+                        <ul>
+                            <!-- <li><a href="#" class="btn-link"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#" class="btn-link"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#" class="btn-link"><i class="fa fa-linkedin"></i></a></li>                         
+                            <li class="search-btn"><button id="quik-search-btn" type="button" class="btn-link"><i class="fa fa-search"></i></button></li>
+                        -->
+
+                            <li *ngIf="IshideLogin"><a style="cursor: pointer;"  class="btn-link" routerLink="/login">Login</a></li>&nbsp;&nbsp;
+                            <li *ngIf="IshideLogin"><a style="cursor: pointer;"  class="btn-link" (click)="register()">Register</a></li>
+                            
+                       
+                            <li *ngIf="IshideLogOut"><a class="btn-link" style="color: antiquewhite;">Hi! {{LoginUsrName}}</a></li>
+                            <li *ngIf="IshideLogOut">                               
+                                <div class="dropdown">                              
+                                    <a  class="ttr-material-button ttr-submenu-toggle btn-link">                                    
+                                        <span class="ttr-user-avatar">
+                                            <img alt="" [src]="image" width="32" height="32">                                  
+                                        </span>                                    
+                                    </a>
+                                    <div class="dropdown-content" >
+                                      <a style="cursor: pointer;"  (click)="ChangeMyProfile()">Profile </a>
+                                      <a style="cursor: pointer;"  routerLink="/ChangePassword">Password Change </a>
+                                      <a style="cursor: pointer;"  (click)="Logout()">Logout</a>                                 
+                                    </div>
+                                  </div>                
+                            </li>
+                          
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="nav-search-bar">
+                    <form action="#">
+                        <input name="search" value="" type="text" class="form-control" placeholder="Type to search">
+                        <span><i class="ti-search"></i></span>
+                    </form>
+                    <span id="search-remove"><i class="ti-close"></i></span>
+                </div>
+              
+                <div class="menu-links navbar-collapse collapse justify-content-start" id="menuDropdown">
+                    <div class="menu-logo">
+                        <a routerLink="/home"><img src="../../../assets/images/logo.png" alt=""></a>
+                    </div>
+                    <ul class="nav navbar-nav">	
+                        <li class="active"><a style="cursor: pointer;" routerLink="/home">Home</a></li>
+                     
+                        <li><a routerLink="/home" style="cursor: pointer;" > Products <i class="fa fa-chevron-down"></i></a>
+                            <ul class="sub-menu" >
+                                <li *ngFor="let th of catedata"><a style="cursor: pointer;"  (click)="LoadProductListPage(th.Id)">{{th.CategName}}</a></li>                
+                                <!-- <li *ngFor="let th of catedata"><a (click)="LoadProductListPage(th)">{{th.CategName}}</a></li>                 -->
+                            </ul>
+                        </li>
+                        <li><a style="cursor: pointer;" routerLink="/about-us">About Us</a></li>
+                        <li *ngIf="usrTyp==2" class="nav-dashboard" ><a style="cursor: pointer;"  routerLink="/employee">Employee </a> </li>
+
+                        <li *ngIf="usrTyp==1" class="nav-dashboard" ><a style="cursor: pointer;"  routerLink="/dashboard">Dashboard </a> </li>
+                       
+                        <li  class="nav-dashboard" >
+                            <a routerLink="/cart" style="cursor: pointer;" >
+                            <span class="badge badge-danger">{{ProdCount}} </span> 
+                            <i class="fa fa-shopping-cart fa-2xl" style="font-size: 18px;"></i>
+                            </a>
+                         </li>
+                
+                       
+
+                    </ul>
+                    <div class="nav-social-link">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,151 @@
+
+<app-admin-navbar></app-admin-navbar>
+<app-sidebar></app-sidebar>
+
+<main class="ttr-wrapper">
+    <div class="container-fluid">
+        <div class="db-breadcrumb">
+            <h4 class="breadcrumb-title">{{operation}} User Profile</h4>
+            <ul class="db-breadcrumb-list">
+                <li><a routerLink="/dashboard"><i class="fa fa-home"></i>Home</a></li>
+                <li><a routerLink="/user"><i class="fa fa-user"></i>User</a></li>
+                <li>{{operation}} User Profile</li>
+            </ul>
+        </div>	
+        <div class="row">
+
+            <div class="col-lg-12 m-b30">
+                <div class="widget-box">
+                    <div class="wc-title">
+                        <h4>{{operation}} User Profile</h4>                 
+                    </div>
+                    <div class="widget-inner">
+                        <form class="edit-profile m-b30">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="ml-auto">
+                                        <h3>1. Personal Details</h3>
+                                    </div>
+                                </div>
+                                <div class="form-group col-6">
+                                    <label class="col-form-label">First Name</label>
+                                    <div>
+                                        <input class="form-control" type="text" name="FName" [(ngModel)]="usr.FName"   [disabled]="Isdisabled"  autocomplete="off">
+                                    </div>
+                                </div>
+                                <div class="form-group col-6">
+                                    <label class="col-form-label">Last Name</label>
+                                    <div>
+                                        <input class="form-control" type="text" name="LName" [(ngModel)]="usr.LName"    [disabled]="Isdisabled"  autocomplete="off">
+                                    </div>
+                                </div>
+                                <div class="seperator"></div>
+
+                                <div class="col-12 m-t20">
+                                    <div class="ml-auto m-b5">
+                                        <h3>2. Contact Info</h3>
+                                    </div>
+                                </div>
+                              
+                                <div class="form-group col-6">
+                                    <label class="col-form-label">Email .</label>
+                                    <div>
+                                        <input class="form-control" type="email" [(ngModel)]="usr.Email"  name="Email"  [disabled]="Isdisabled"  autocomplete="off">
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-6">
+                                    <label class="col-form-label">Mobile No.</label>
+                                    <div>
+                                        <input class="form-control" type="text" [(ngModel)]="usr.MobileNo" name="MobileNumber" [disabled]="Isdisabled"   autocomplete="off">
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-6">
+                                    <label class="col-form-label">Address</label>
+                                    <div>
+                                        <input class="form-control" type="text" [(ngModel)]="usr.Address" name="Address" [disabled]="Isdisabled"   autocomplete="off">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group col-6 ">
+                                    <label  class=" col-form-label">User Type</label>
+                                    <div>
+                                        <select class="form-control  " [(ngModel)]="usr.UsrType" name="Usrtype" [disabled]="Isdisabled" required="required"  
+                                            >
+                                            <option value=""></option>
+                                            <option [value]="usrtyp.Id"  *ngFor="let usrtyp of UsrTypeList">     
+                                                {{usrtyp.Usr}}  
+                                            </option>      
+                                          </select>
+                                    </div>
+                                </div>
+                                <div class="seperator"></div>
+                            
+
+                                <div class="form-group col-6">
+                                    <label class="col-form-label">Your Password</label>						
+                                    <div>
+                                        <input class="form-control" type="password" [(ngModel)]="usr.Password" name="password"
+                                          [disabled]="Isdisabled" [disabled]="PwdDisable" autocomplete="off">
+                                    </div>
+                                </div>
+                                <div class="form-group col-6">
+                                    <label class="col-form-label">Confirm Password</label>						
+                                    <div>
+                                        <input class="form-control" type="password" [(ngModel)]="usr.cPassword" name="cpassword" 
+                                        [disabled]="Isdisabled" [disabled]="PwdDisable"  autocomplete="off">
+                                    </div>
+                                </div>
+
+                             
+                               
+                                
+                                <div class="seperator"></div>
+                                
+                                <div class="form-group col-6">       
+                                    <label  class="col-form-label">Status</label>    
+                                      <div class="col-sm-9">
+                                        <label class="switch ">
+                                            <input type="checkbox"    id="togBtn" [(ngModel)]="usr.IsActive" name="Status" (change)="ActivrStatus()" [disabled]="Isdisabled">
+                                            <div class="slider"></div>
+                                          </label>
+                                      </div>                               
+                                </div>
+                                
+                                <div class="form-group row">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <img [src]="image" style="height:150px ;" >
+                                        </div>              
+                                        <div class="col-md-6">                         
+                                            <button (click)="selectImage.click()"
+                                              class="btn btn-outline-secondary btn-block btn-sm float-right" style="width: 150px;" > 
+                                             <i class="fa fa-upload" aria-hidden="true"></i> Upload Image
+                                            </button>  
+                                            <input type="file" (change)="updateImage($event)" class="form-control-file" id="image" style="display: none" #selectImage>
+                                            <h4>{{FileName}}</h4>
+                                        </div>
+                                    </div>       
+                                </div>
+
+
+
+                                <div class="m-form__seperator m-form__seperator--dashed m-form__seperator--space-2x"></div>
+
+                            
+
+                                <div class="col-12">
+                                    <button  class="btn-secondry" (click)="Clear()" [disabled]="Isdisabled">Clear</button>&nbsp;
+                                    <button  class="btn btn-sm btn-success"  (click)="SaveNewUser()" [disabled]="Isdisabled">{{BtnName}}</button>                             
+                                </div>
+                            </div>
+                        </form>
+                       
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</main>

@@ -1,0 +1,83 @@
+
+<app-admin-navbar></app-admin-navbar>
+<app-sidebar></app-sidebar>
+
+<main class="ttr-wrapper">
+    <div class="container-fluid">
+        <div class="db-breadcrumb">
+            <h4 class="breadcrumb-title">Supplier Master</h4>
+            <ul class="db-breadcrumb-list">
+                <li><a routerLink="/dashboard"><i class="fa fa-home"></i>Home</a></li>
+                <li>Supplier Master</li>
+            </ul>
+        </div>	
+        <div class="row">
+           
+            <div class="col-lg-12 m-b30">
+                <div class="widget-box">
+                    <div class="wc-title">
+                        <h4>Supplier Master</h4>                                         
+                    </div>
+                    <div class="row">
+                        <div class="input-group col-md-6">
+                            <div class="input-group-prepend input-group-prepend-sm">
+                                <div class="input-group-text"><i class="fa fa-search"></i></div>
+                            </div>
+                            <br>
+                            <input  type="text" [(ngModel)]="_search"  name="_search"  class="form-control form-control-sm"
+                                placeholder="Search">            
+                        </div>
+                        <div class="input-group col-md-6">
+                            <button type="button" class="btn btn-success" (click)="addSupplier(0,0)" data-toggle="tooltip" data-placement="top"
+                                title="Add New Parent"><i class="fa fa-plus" aria-hidden="true"></i>
+                            </button>             
+                        </div>
+                    </div>   
+                     
+                    <div class="widget-inner">
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Company</th>
+                                    <th scope="col">Cont.No</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Edit</th>
+                                    <th scope="col">View</th>
+                                    <th scope="col">Disable</th>
+                    
+                                </tr>
+                            </thead>
+                          
+
+                            <tbody>
+                                <tr *ngFor="let thr of usrdata" >
+                                    <td >{{thr.CountId}}</td>
+                                    <td>{{thr.SName}}</td>
+                                    <td>{{thr.SMobileNo}}</td>
+                                    <td>{{thr.SEmail}}</td>
+                                    <td>
+                                        <img  src="../../../../../assets/images/icon/yes.png"  style="width: 20px;height: 20px;" *ngIf="thr.IsActive==1"   >
+                                        <img  src="../../../../../assets/images/icon/no.png"  style="width: 20px;height: 20px;"  *ngIf="thr.IsActive==0" >
+                    
+                    
+                                    </td>
+                                    <td><i class="fa fa-pencil-square" style="color: blue; cursor: pointer;" (click)="addSupplier(1,thr.Id)"
+                                            aria-hidden="true"></i></td>
+                                    <td><i class="fa fa-eye" style="color: red; cursor: pointer;" (click)="addSupplier(2,thr.Id)"
+                                            aria-hidden="true"></i> </td>
+                                    <td><i class="fa fa-trash" style="color: red; cursor: pointer;" (click)="openDialog(thr.Id)" aria-hidden="true"></i> </td>
+                    
+                                </tr>
+                    
+                            </tbody>
+                        </table>
+                    
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</main>
