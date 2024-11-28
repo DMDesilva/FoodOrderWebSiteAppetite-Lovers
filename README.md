@@ -8,7 +8,7 @@ Appetite Lovers is a web-based platform for ordering homemade food in Kalaniya. 
 
 ## **Features**
 - User Registration and Login
-- Browse and Search for Food Items
+- Browse Products
 - Add Items to Cart
 - Secure Payment and Checkout
 - Admin Dashboard for Managing Products, Orders, and Users
